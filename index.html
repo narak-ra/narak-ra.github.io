@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ra Narak — RF & Telecom Engineer</title>
+  <meta name="description" content="Portfolio of Ra Narak, RF & Telecom Engineer specializing in 4G/5G cluster optimization." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080c12;
+      --surface: #0d1117;
+      --surface2: #161b22;
+      --border: #21262d;
+      --border2: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --subtle: #484f58;
+      --accent: #58a6ff;
+      --accent-bg: #1c2a3a;
+      --accent-border: #1f6feb;
+      --green: #3fb950;
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-display);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,12,18,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 1px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* HERO */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-bg);
+      border: 0.5px solid var(--accent-border);
+      border-radius: 999px;
+      padding: 5px 14px;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-mono);
+    }
+    .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .badge span { font-size: 12px; color: var(--accent); }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 .name { color: var(--text); }
+    .hero h1 .title { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 1.25rem 0 2rem;
+      font-family: var(--font-mono);
+      line-height: 1.7;
+    }
+
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent);
+      color: #080c12;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: var(--font-display);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline {
+      background: transparent;
+      color: var(--muted);
+      border: 0.5px solid var(--border2);
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: var(--font-display);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--muted); color: var(--text); }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 0.5px solid var(--border); margin: 0; }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .stat {
+      padding: 1.5rem 2rem;
+      border-right: 0.5px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .stat-lbl {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      margin-top: 4px;
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    section + section { border-top: 0.5px solid var(--border); }
+
+    .sec-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .skill-chip {
+      background: var(--surface2);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: border-color 0.2s;
+    }
+    .skill-chip:hover { border-color: var(--border2); }
+    .skill-icon {
+      width: 32px; height: 32px;
+      background: var(--accent-bg);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .skill-name { font-size: 13px; color: var(--text); }
+    .skill-sub { font-size: 11px; color: var(--muted); font-family: var(--font-mono); }
+
+    /* EXPERIENCE / PROJECTS */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .proj-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .proj-card:hover { border-color: var(--border2); }
+    .proj-tag {
+      display: inline-block;
+      background: var(--accent-bg);
+      color: var(--accent);
+      font-size: 11px;
+      font-family: var(--font-mono);
+      border-radius: 999px;
+      padding: 3px 10px;
+      margin-bottom: 10px;
+    }
+    .proj-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .proj-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-family: var(--font-mono);
+    }
+
+    /* CERTS */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .cert-chip {
+      background: var(--surface2);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cert-icon { font-size: 18px; }
+    .cert-name { font-size: 13px; color: var(--text); font-weight: 500; }
+
+    /* CONTACT */
+    .contact-list { display: flex; flex-direction: column; gap: 0; }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-icon { font-size: 18px; color: var(--muted); width: 24px; text-align: center; }
+    .contact-label { font-size: 12px; color: var(--subtle); font-family: var(--font-mono); width: 80px; }
+    .contact-val { font-size: 14px; color: var(--text); }
+    .contact-val a { color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--subtle);
+    }
+
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeIn 0.6s ease forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in:nth-child(1) { animation-delay: 0.1s; }
+    .fade-in:nth-child(2) { animation-delay: 0.2s; }
+    .fade-in:nth-child(3) { animation-delay: 0.3s; }
+    .fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      nav { padding: 0.75rem 1rem; }
+      .nav-links { gap: 1rem; }
+      .hero { padding: 4rem 1rem 3rem; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat:nth-child(3) { grid-column: span 2; border-right: none; border-top: 0.5px solid var(--border); }
+      section { padding: 2rem 1rem; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">RN<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero" id="about">
+    <div class="badge fade-in">
+      <div class="badge-dot"></div>
+      <span>Open to opportunities</span>
+    </div>
+    <h1 class="fade-in">
+      <span class="name">Ra Narak</span><br>
+      <span class="title">RF &amp; Telecom Engineer</span>
+    </h1>
+    <p class="hero-sub fade-in">
+      Hands-on RF engineer with 1.5+ years optimizing 4G and 5G cluster networks for major Thai operators. Focused on coverage quality, KPI improvement, and network performance.
+    </p>
+    <div class="hero-btns fade-in">
+      <a href="#experience"><button class="btn-primary">View experience</button></a>
+      <a href="#contact"><button class="btn-outline">Contact me</button></a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">1.5+</div>
+      <div class="stat-lbl">Years experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-lbl">Operators served</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-lbl">Certifications</div>
+    </div>
+  </div>
+
+  <section id="skills">
+    <div class="sec-label">Core skills</div>
+    <div class="skills-grid">
+      <div class="skill-chip">
+        <div class="skill-icon">&#128225;</div>
+        <div>
+          <div class="skill-name">5G / LTE</div>
+          <div class="skill-sub">NR &amp; 4G optimization</div>
+        </div>
+      </div>
+      <div class="skill-chip">
+        <div class="skill-icon">&#128225;</div>
+        <div>
+          <div class="skill-name">Network planning &amp; RF</div>
+          <div class="skill-sub">Coverage &amp; capacity</div>
+        </div>
+      </div>
+      <div class="skill-chip">
+        <div class="skill-icon">&#128225;</div>
+        <div>
+          <div class="skill-name">Microwave / transmission</div>
+          <div class="skill-sub">Backhaul links</div>
+        </div>
+      </div>
+      <div class="skill-chip">
+        <div class="skill-icon">&#128225;</div>
+        <div>
+          <div class="skill-name">Cluster optimization</div>
+          <div class="skill-sub">KPI tuning &amp; analysis</div>
+        </div>
+      </div>
+      <div class="skill-chip">
+        <div class="skill-icon">&#128225;</div>
+        <div>
+          <div class="skill-name">Drive test &amp; analysis</div>
+          <div class="skill-sub">RSRP, SINR, throughput</div>
+        </div>
+      </div>
+      <div class="skill-chip">
+        <div class="skill-icon">&#128225;</div>
+        <div>
+          <div class="skill-name">KPI monitoring</div>
+          <div class="skill-sub">Performance reporting</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-label">Experience</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-tag">TRUE network</div>
+        <div class="proj-title">4G/5G cluster optimization</div>
+        <div class="proj-desc">Performed cluster-level RF optimization for TRUE operator's 4G and 5G sites, improving KPIs including RSRP, SINR, and throughput across assigned regions.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-tag">DTAC network</div>
+        <div class="proj-title">4G/5G cluster optimization</div>
+        <div class="proj-desc">Conducted RF analysis and optimization for DTAC's LTE and 5G network clusters, focusing on interference reduction and coverage improvement.</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-tag">Air Connect Engineer</div>
+        <div class="proj-title">ACE field engineering — Thailand</div>
+        <div class="proj-desc">Deployed as Air Connect Engineer in Thailand for 1.5 years, supporting end-to-end RF planning, testing, and on-site troubleshooting activities.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">Certifications</div>
+    <div class="certs-grid">
+      <div class="cert-chip">
+        <div class="cert-icon">&#127941;</div>
+        <div class="cert-name">CNBG</div>
+      </div>
+      <div class="cert-chip">
+        <div class="cert-icon">&#127941;</div>
+        <div class="cert-name">CSC</div>
+      </div>
+      <div class="cert-chip">
+        <div class="cert-icon">&#127941;</div>
+        <div class="cert-name">EHS</div>
+      </div>
+      <div class="cert-chip">
+        <div class="cert-icon">&#127941;</div>
+        <div class="cert-name">THCP</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-label">Contact</div>
+    <div class="contact-list">
+      <div class="contact-row">
+        <div class="contact-icon">&#9993;</div>
+        <div class="contact-label">Email</div>
+        <div class="contact-val"><a href="mailto:Bora.narak@gmail.com">Bora.narak@gmail.com</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">&#128101;</div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-val"><a href="https://linkedin.com/in/narak-ra" target="_blank">linkedin.com/in/narak-ra</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">&#128205;</div>
+        <div class="contact-label">Location</div>
+        <div class="contact-val">Phnom Penh, Cambodia</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Ra Narak — RF &amp; Telecom Engineer</span>
+    <span>&copy; 2026</span>
+  </footer>
+
+</body>
+</html>
